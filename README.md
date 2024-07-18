@@ -18,7 +18,7 @@ This Terraform module creates structured subnet for GCP resources with specific 
 ## Example: subnet
 ```hcl
 module "subnet" {
-  source        = "git::https://github.com/opsstation/terraform-gcp-subnet.git"
+  source        = "git::https://github.com/sohanyadav/terraform-gcp-subnet.git"
   subnet_names  = ["dev", "ops"]
   environment   = "test"
   gcp_region    = "us-west1"
@@ -42,14 +42,14 @@ Please ensure you specify the correct 'source' path for the module.
 - This module currently does not provide any outputs.
 
 # Examples
-For detailed examples on how to use this module, please refer to the [example](https://github.com/opsstation/terraform-gcp-subnet/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [example](https://github.com/sohanyadav/terraform-gcp-subnet/tree/master/_example) directory within this repository.
 
 ## Authors
 Your Name
 Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opsstation/terraform-gcp-subnet/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sohanyadav/terraform-gcp-subnet/blob/master/LICENSE) file for details.
 
 
 
@@ -72,7 +72,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:opsstation/terraform-gcp-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:sohanyadav/terraform-gcp-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -87,39 +87,39 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_address_enabled"></a> [address\_enabled](#input\_address\_enabled) | Toggle to enable or disable address functionality. | `bool` | `true` | no |
-| <a name="input_asn"></a> [asn](#input\_asn) | Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit. | `number` | `64514` | no |
-| <a name="input_description"></a> [description](#input\_description) | (Optional) An optional description of the VPC. The resource must be recreated to modify this field.Default is ''. | `string` | `""` | no |
-| <a name="input_dest_range"></a> [dest\_range](#input\_dest\_range) | The destination range of outgoing packets that this route applies to. Only IPv4 is supported. | `string` | `"0.0.0.0/0"` | no |
-| <a name="input_enabled"></a> [enabled](#input\_enabled) | Toggle to enable or disable the main functionality. | `bool` | `true` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
-| <a name="input_filter"></a> [filter](#input\_filter) | Specifies the desired filtering of logs on this NAT. | `string` | `"ERRORS_ONLY"` | no |
-| <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | Google Cloud region | `string` | `"us-west1"` | no |
-| <a name="input_icmp_idle_timeout_sec"></a> [icmp\_idle\_timeout\_sec](#input\_icmp\_idle\_timeout\_sec) | (Optional) Timeout (in seconds) for ICMP connections. Defaults to 30s if not set. | `number` | `30` | no |
-| <a name="input_ip_cidr_range"></a> [ip\_cidr\_range](#input\_ip\_cidr\_range) | (Required) The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. | `list(string)` | <pre>[<br>  ""<br>]</pre> | no |
-| <a name="input_ip_version"></a> [ip\_version](#input\_ip\_version) | (Optional) The IP Version that will be used by this address. The default value is IPV4. Possible values are: IPV4, IPV6. | `string` | `"IPV4"` | no |
-| <a name="input_ipv6_access_type"></a> [ipv6\_access\_type](#input\_ipv6\_access\_type) | The access type of IPv6 address this subnet holds. | `string` | `"EXTERNAL"` | no |
-| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
-| <a name="input_log_config"></a> [log\_config](#input\_log\_config) | (Optional) Logging options for the subnetwork flow logs. Setting this value to 'null' will disable them. See https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html for more information and examples. | `any` | `null` | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, opsstation. | `string` | `"opsstation"` | no |
-| <a name="input_module_timeouts"></a> [module\_timeouts](#input\_module\_timeouts) | (Optional) How long certain operations (per resource type) are allowed to take before being considered to have failed. | `any` | `{}` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name of the resource, provided by the client when initially creating the resource. | `string` | `"test1"` | no |
-| <a name="input_nat_ip_allocate_option"></a> [nat\_ip\_allocate\_option](#input\_nat\_ip\_allocate\_option) | How external IPs should be allocated for this NAT. | `string` | `"MANUAL_ONLY"` | no |
-| <a name="input_network"></a> [network](#input\_network) | (Required) The VPC network the subnets belong to. Only networks that are in the distributed mode can have subnetworks. | `string` | `""` | no |
-| <a name="input_next_hop_gateway"></a> [next\_hop\_gateway](#input\_next\_hop\_gateway) | URL to a gateway that should handle matching packets. | `string` | `"default-internet-gateway"` | no |
-| <a name="input_priority"></a> [priority](#input\_priority) | The priority of this route. | `number` | `1000` | no |
-| <a name="input_private_ip_google_access"></a> [private\_ip\_google\_access](#input\_private\_ip\_google\_access) | (Optional) When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access. | `bool` | `true` | no |
-| <a name="input_purpose"></a> [purpose](#input\_purpose) | - (Optional) The purpose of the resource. This field can be either PRIVATE\_RFC\_1918, REGIONAL\_MANAGED\_PROXY, GLOBAL\_MANAGED\_PROXY, or PRIVATE\_SERVICE\_CONNECT | `string` | `""` | no |
-| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/opsstation/terraform-gcp-subnet.git"` | no |
-| <a name="input_route_enabled"></a> [route\_enabled](#input\_route\_enabled) | Toggle to enable or disable routing functionality. | `bool` | `true` | no |
-| <a name="input_router_enabled"></a> [router\_enabled](#input\_router\_enabled) | Toggle to enable or disable the router. | `bool` | `true` | no |
-| <a name="input_router_nat_enabled"></a> [router\_nat\_enabled](#input\_router\_nat\_enabled) | Toggle to enable or disable NAT functionality for the router. | `bool` | `true` | no |
-| <a name="input_secondary_ip_ranges"></a> [secondary\_ip\_ranges](#input\_secondary\_ip\_ranges) | An array of configurations for secondary IP ranges for VM instances contained in this subnetwork. The primary IP of such VM must belong to the primary ipCidrRange of the subnetwork. The alias IPs may belong to either primary or secondary ranges. | `any` | `[]` | no |
-| <a name="input_source_subnetwork_ip_ranges_to_nat"></a> [source\_subnetwork\_ip\_ranges\_to\_nat](#input\_source\_subnetwork\_ip\_ranges\_to\_nat) | How NAT should be configured per Subnetwork. | `string` | `"ALL_SUBNETWORKS_ALL_IP_RANGES"` | no |
-| <a name="input_subnet_names"></a> [subnet\_names](#input\_subnet\_names) | The name of the resource, provided by the client when initially creating the resource. | `list(string)` | `[]` | no |
-| <a name="input_udp_idle_timeout_sec"></a> [udp\_idle\_timeout\_sec](#input\_udp\_idle\_timeout\_sec) | (Optional) Timeout (in seconds) for UDP connections. Defaults to 30s if not set. | `number` | `30` | no |
+| Name | Description | Type | Default                                                    | Required |
+|------|-------------|------|------------------------------------------------------------|:--------:|
+| <a name="input_address_enabled"></a> [address\_enabled](#input\_address\_enabled) | Toggle to enable or disable address functionality. | `bool` | `true`                                                     | no |
+| <a name="input_asn"></a> [asn](#input\_asn) | Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit. | `number` | `64514`                                                    | no |
+| <a name="input_description"></a> [description](#input\_description) | (Optional) An optional description of the VPC. The resource must be recreated to modify this field.Default is ''. | `string` | `""`                                                       | no |
+| <a name="input_dest_range"></a> [dest\_range](#input\_dest\_range) | The destination range of outgoing packets that this route applies to. Only IPv4 is supported. | `string` | `"0.0.0.0/0"`                                              | no |
+| <a name="input_enabled"></a> [enabled](#input\_enabled) | Toggle to enable or disable the main functionality. | `bool` | `true`                                                     | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""`                                                       | no |
+| <a name="input_filter"></a> [filter](#input\_filter) | Specifies the desired filtering of logs on this NAT. | `string` | `"ERRORS_ONLY"`                                            | no |
+| <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | Google Cloud region | `string` | `"us-west1"`                                               | no |
+| <a name="input_icmp_idle_timeout_sec"></a> [icmp\_idle\_timeout\_sec](#input\_icmp\_idle\_timeout\_sec) | (Optional) Timeout (in seconds) for ICMP connections. Defaults to 30s if not set. | `number` | `30`                                                       | no |
+| <a name="input_ip_cidr_range"></a> [ip\_cidr\_range](#input\_ip\_cidr\_range) | (Required) The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. | `list(string)` | <pre>[<br>  ""<br>]</pre>                                  | no |
+| <a name="input_ip_version"></a> [ip\_version](#input\_ip\_version) | (Optional) The IP Version that will be used by this address. The default value is IPV4. Possible values are: IPV4, IPV6. | `string` | `"IPV4"`                                                   | no |
+| <a name="input_ipv6_access_type"></a> [ipv6\_access\_type](#input\_ipv6\_access\_type) | The access type of IPv6 address this subnet holds. | `string` | `"EXTERNAL"`                                               | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre>          | no |
+| <a name="input_log_config"></a> [log\_config](#input\_log\_config) | (Optional) Logging options for the subnetwork flow logs. Setting this value to 'null' will disable them. See https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html for more information and examples. | `any` | `null`                                                     | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, sohanyadav. | `string` | `"example"`                                                | no |
+| <a name="input_module_timeouts"></a> [module\_timeouts](#input\_module\_timeouts) | (Optional) How long certain operations (per resource type) are allowed to take before being considered to have failed. | `any` | `{}`                                                       | no |
+| <a name="input_name"></a> [name](#input\_name) | The name of the resource, provided by the client when initially creating the resource. | `string` | `"test1"`                                                  | no |
+| <a name="input_nat_ip_allocate_option"></a> [nat\_ip\_allocate\_option](#input\_nat\_ip\_allocate\_option) | How external IPs should be allocated for this NAT. | `string` | `"MANUAL_ONLY"`                                            | no |
+| <a name="input_network"></a> [network](#input\_network) | (Required) The VPC network the subnets belong to. Only networks that are in the distributed mode can have subnetworks. | `string` | `""`                                                       | no |
+| <a name="input_next_hop_gateway"></a> [next\_hop\_gateway](#input\_next\_hop\_gateway) | URL to a gateway that should handle matching packets. | `string` | `"default-internet-gateway"`                               | no |
+| <a name="input_priority"></a> [priority](#input\_priority) | The priority of this route. | `number` | `1000`                                                     | no |
+| <a name="input_private_ip_google_access"></a> [private\_ip\_google\_access](#input\_private\_ip\_google\_access) | (Optional) When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access. | `bool` | `true`                                                     | no |
+| <a name="input_purpose"></a> [purpose](#input\_purpose) | - (Optional) The purpose of the resource. This field can be either PRIVATE\_RFC\_1918, REGIONAL\_MANAGED\_PROXY, GLOBAL\_MANAGED\_PROXY, or PRIVATE\_SERVICE\_CONNECT | `string` | `""`                                                       | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/sohanyadav/terraform-gcp-subnet.git"` | no |
+| <a name="input_route_enabled"></a> [route\_enabled](#input\_route\_enabled) | Toggle to enable or disable routing functionality. | `bool` | `true`                                                     | no |
+| <a name="input_router_enabled"></a> [router\_enabled](#input\_router\_enabled) | Toggle to enable or disable the router. | `bool` | `true`                                                     | no |
+| <a name="input_router_nat_enabled"></a> [router\_nat\_enabled](#input\_router\_nat\_enabled) | Toggle to enable or disable NAT functionality for the router. | `bool` | `true`                                                     | no |
+| <a name="input_secondary_ip_ranges"></a> [secondary\_ip\_ranges](#input\_secondary\_ip\_ranges) | An array of configurations for secondary IP ranges for VM instances contained in this subnetwork. The primary IP of such VM must belong to the primary ipCidrRange of the subnetwork. The alias IPs may belong to either primary or secondary ranges. | `any` | `[]`                                                       | no |
+| <a name="input_source_subnetwork_ip_ranges_to_nat"></a> [source\_subnetwork\_ip\_ranges\_to\_nat](#input\_source\_subnetwork\_ip\_ranges\_to\_nat) | How NAT should be configured per Subnetwork. | `string` | `"ALL_SUBNETWORKS_ALL_IP_RANGES"`                          | no |
+| <a name="input_subnet_names"></a> [subnet\_names](#input\_subnet\_names) | The name of the resource, provided by the client when initially creating the resource. | `list(string)` | `[]`                                                       | no |
+| <a name="input_udp_idle_timeout_sec"></a> [udp\_idle\_timeout\_sec](#input\_udp\_idle\_timeout\_sec) | (Optional) Timeout (in seconds) for UDP connections. Defaults to 30s if not set. | `number` | `30`                                                       | no |
 
 ## Outputs
 
