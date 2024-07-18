@@ -91,8 +91,8 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 |------|-------------|------|---------|:--------:|
 | <a name="input_address_enabled"></a> [address\_enabled](#input\_address\_enabled) | Toggle to enable or disable address functionality. | `bool` | `true` | no |
 | <a name="input_asn"></a> [asn](#input\_asn) | Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit. | `number` | `64514` | no |
-+| <a name="input_description"></a> [description](#input\_description) | (Optional) An optional description of the VPC. The resource must be recreated to modify this field.Default is ''. | `string` | `""` | no |
-+| <a name="input_dest_range"></a> [dest\_range](#input\_dest\_range) | The destination range of outgoing packets that this route applies to. Only IPv4 is supported. | `string` | `"0.0.0.0/0"` | no |
+| <a name="input_description"></a> [description](#input\_description) | (Optional) An optional description of the VPC. The resource must be recreated to modify this field.Default is ''. | `string` | `""` | no |
+| <a name="input_dest_range"></a> [dest\_range](#input\_dest\_range) | The destination range of outgoing packets that this route applies to. Only IPv4 is supported. | `string` | `"0.0.0.0/0"` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Toggle to enable or disable the main functionality. | `bool` | `true` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
 | <a name="input_filter"></a> [filter](#input\_filter) | Specifies the desired filtering of logs on this NAT. | `string` | `"ERRORS_ONLY"` | no |
